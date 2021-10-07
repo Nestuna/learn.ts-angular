@@ -1,0 +1,38 @@
+/* MessagesComponent's private CSS styles */
+.messages {
+    width: 15em;
+    background-color: #EEE;
+    border-radius: 4px;
+}
+.messages .messages-header {
+    background-color: #42545C;
+    border-radius: 4px 4px 0 0;
+    padding: 0 .3em;
+    margin-bottom: 1em;
+    height: 2em;
+}
+
+h2 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+  }
+p {
+    margin: .5em;
+    padding: .5em;
+    background-color: #CCC;
+    border-radius: 4px;
+
+}
+.clear {
+    color: #333;
+    background-color: #eee;
+    margin: .5em;
+    padding: .3em;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.clear:hover {
+    color: white;
+    background-color: #42545C;
+}
