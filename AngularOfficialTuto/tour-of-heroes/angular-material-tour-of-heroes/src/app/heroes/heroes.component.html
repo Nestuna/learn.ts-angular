@@ -1,0 +1,40 @@
+<div class="heroes">
+    <div class="header">
+        <h2>My Heroes</h2>
+        <mat-form-field appearance="fill">
+            <mat-label>Hero name</mat-label>
+            <input
+                matInput
+                id="new-hero"
+                #heroName>
+        </mat-form-field>
+        <button
+            mat-stroked-button
+            class="add-button"
+            (click)="add(heroName.value); heroName.value=''">
+            Add hero
+        </button>
+    </div>
+    <mat-card
+        class="mat-elevation-z5"
+        *ngFor="let hero of heroes">
+        <mat-card-title>{{ hero.name }}</mat-card-title>
+        <mat-card-subtitle>{{ hero.id }}</mat-card-subtitle>
+        <mat-card-content></mat-card-content>
+        <mat-card-actions align="end">
+            <button
+                mat-button
+                title="edit hero"
+                routerLink="/detail/{{hero.id}}">
+                Edit
+            </button>
+            <button
+                mat-button
+                color="warn"
+                title="delete hero"
+                (click)="delete(hero)">
+                Delete
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

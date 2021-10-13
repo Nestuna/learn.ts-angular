@@ -1,0 +1,14 @@
+.heroes-menu {
+    margin: 1em;
+
+    mat-grid-tile {
+        background-color: rgb(152, 139, 204);
+        color: white;
+    }
+    mat-grid-tile:hover {
+        background-color: rgb(185, 174, 209);
+        cursor: pointer;
+    }
+
+}
+

@@ -1,0 +1,33 @@
+.heroes {
+    max-width: 500px;
+    margin: 1em;
+
+    .header {
+        margin-bottom: 2em;
+    }
+
+    button {
+        margin-left: 1em;
+    }
+}
+
+
+mat-card {
+    margin-bottom: 1em;
+    background-color: #EEE;
+    width: 200px;
+
+    mat-card-subtitle {
+        margin-bottom: 0;
+    }
+    mat-card-content {
+        margin: 0;
+    }
+    mat-card-actions {
+        padding: 0;
+    }
+}
+
+mat-card:hover {
+    background-color: rgb(245, 245, 245);
+}
