@@ -11,8 +11,9 @@
     <mat-autocomplete #search_auto>
         <mat-option
             *ngFor="let hero of heroes$ | async"
+            (onSelectionChange)="goTo('/detail/' + hero.id)"
             [value]="hero.name">
-            <a routerLink="/detail/{{hero.id}}">{{hero.name}}</a>
+                {{hero.name}}
         </mat-option>
     </mat-autocomplete>
 </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { assertPlatform, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
 import {
@@ -18,11 +18,18 @@ export class HeroSearchComponent implements OnInit {
   heroes$!: Observable<Hero[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private heroService: HeroService) {}
+  constructor(
+    private router: Router,
+    private heroService: HeroService
+  ) { }
 
   // Push a search term into the observable stream.
   search(term: string): void {
     this.searchTerms.next(term);
+  }
+
+  goTo(url: string): void {
+    this.router.navigateByUrl(url);
   }
 
   ngOnInit(): void {
