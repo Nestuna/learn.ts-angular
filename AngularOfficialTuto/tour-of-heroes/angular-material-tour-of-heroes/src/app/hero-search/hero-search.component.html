@@ -12,7 +12,7 @@
         <mat-option
             *ngFor="let hero of heroes$ | async"
             [value]="hero.name">
-            <span routerLink="/detail/{{hero.id}}">{{hero.name}}</span>
+            <a routerLink="/detail/{{hero.id}}">{{hero.name}}</a>
         </mat-option>
     </mat-autocomplete>
 </div>

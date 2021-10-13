@@ -1,20 +1,24 @@
 <div class="heroes">
     <div class="header">
         <h2>My Heroes</h2>
-        <mat-form-field appearance="fill">
-            <mat-label>Hero name</mat-label>
-            <input
-                matInput
-                id="new-hero"
-                #heroName>
-        </mat-form-field>
-        <button
-            mat-stroked-button
-            class="add-button"
-            (click)="add(heroName.value); heroName.value=''">
-            Add hero
-        </button>
+        <div id="add_hero">
+            <mat-form-field appearance="fill">
+                <mat-label>Add hero</mat-label>
+                <input
+                    matInput
+                    id="new-hero"
+                    #heroName
+                    placeholder="Hero name">
+            </mat-form-field>
+            <button
+                mat-stroked-button
+                class="add-button"
+                (click)="add(heroName.value); heroName.value=''">
+                <mat-icon>add icon</mat-icon>
+            </button>
+        </div>
     </div>
+    <div id="heroes_list">
     <mat-card
         class="mat-elevation-z5"
         *ngFor="let hero of heroes">
@@ -37,4 +41,6 @@
             </button>
         </mat-card-actions>
     </mat-card>
+
+    </div>
 </div>
