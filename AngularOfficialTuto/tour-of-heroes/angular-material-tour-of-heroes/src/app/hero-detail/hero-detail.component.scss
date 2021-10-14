@@ -1,5 +1,14 @@
 mat-card {
-    width: 200px;
     margin-top: 1em;
-    background-color: rgb(245, 245, 245);
+
+    form {
+        .form-fields-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .buttons-container {
+            text-align: center;
+        }
+    }
 }

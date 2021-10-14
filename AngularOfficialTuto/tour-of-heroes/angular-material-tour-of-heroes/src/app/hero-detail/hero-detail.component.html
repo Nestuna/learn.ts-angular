@@ -8,21 +8,52 @@
         class="mat-elevation-z5"
         *ngIf="hero">
         <mat-card-title>{{hero.name | uppercase}} Details</mat-card-title>
-        <mat-card-subtitle>
-            id: {{hero.id}}
-        </mat-card-subtitle>
+        <mat-card-subtitle>id: {{hero.id}}</mat-card-subtitle>
         <mat-card-content>
-            <mat-form-field appearance="fill">
-                <mat-label for="hero-name">Hero name</mat-label>
-                <input
-                    matInput
-                    id="hero-name"
-                    placeholder="name"
-                    [(ngModel)]="hero.name">
-            </mat-form-field>
+            <form
+                [formGroup]="heroFormGroup"
+                (ngSubmit)="onSubmit()">
+                <div class="form-fields-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label for="name">Hero name</mat-label>
+                        <input
+                            matInput
+                            formControlName="name"
+                            placeholder="name"
+                            [ngModel]="hero.name">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label for="name">Age</mat-label>
+                        <input
+                            matInput
+                            formControlName="age"
+                            placeholder="age"
+                            [ngModel]="hero.age">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label for="name">Power</mat-label>
+                        <mat-select
+                            [(value)]="hero.power">
+                            <mat-option
+                                *ngFor="let power of powers"
+                                [value]="power">
+                                {{ power }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="buttons-container">
+                    <button
+                        mat-raised-button
+                        color="primary"
+                        class="submit-button"
+                        (click)="save()">
+                        save
+                    </button>
+                </div>
+            </form>
+
         </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-stroked-button (click)="save()">save</button>
-        </mat-card-actions>
+
     </mat-card>
 </div>

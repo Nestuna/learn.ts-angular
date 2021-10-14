@@ -10,11 +10,11 @@
                     #heroName
                     placeholder="Hero name">
             </mat-form-field>
-            <button
-                mat-stroked-button
-                class="add-button"
+            <button color="basic"
+                mat-mini-fab
+                class="add-button mat-elevation-z2"
                 (click)="add(heroName.value); heroName.value=''">
-                <mat-icon>add icon</mat-icon>
+                <mat-icon>add</mat-icon>
             </button>
         </div>
     </div>
@@ -22,22 +22,28 @@
     <mat-card
         class="mat-elevation-z5"
         *ngFor="let hero of heroes">
-        <mat-card-title>{{ hero.name }}</mat-card-title>
+        <mat-card-title color="primary">{{ hero.name }}</mat-card-title>
         <mat-card-subtitle>{{ hero.id }}</mat-card-subtitle>
-        <mat-card-content></mat-card-content>
+        <mat-card-content>
+            <p>Age: {{ hero.age }}</p>
+            <p>Power: {{ hero.power }}</p>
+        </mat-card-content>
         <mat-card-actions align="end">
-            <button
-                mat-button
+            <a
+                mat-mini-fab
+                color="primary"
+                class="mat-elevation-z0"
                 title="edit hero"
                 routerLink="/detail/{{hero.id}}">
-                Edit
-            </button>
+                <mat-icon>edit</mat-icon>
+            </a>
             <button
-                mat-button
+                mat-mini-fab
                 color="warn"
+                class="mat-elevation-z0"
                 title="delete hero"
                 (click)="delete(hero)">
-                Delete
+                <mat-icon>delete</mat-icon>
             </button>
         </mat-card-actions>
     </mat-card>
