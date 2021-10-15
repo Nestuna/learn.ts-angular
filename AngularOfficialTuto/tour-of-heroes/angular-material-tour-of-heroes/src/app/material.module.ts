@@ -10,24 +10,26 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const modules = [
-    MatButtonModule,
-    MatCardModule,
-    MatListModule,
-    MatBadgeModule,
-    MatIconModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatAutocompleteModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatSelectModule
-]
+  MatButtonModule,
+  MatCardModule,
+  MatListModule,
+  MatBadgeModule,
+  MatIconModule,
+  MatGridListModule,
+  MatFormFieldModule,
+  MatAutocompleteModule,
+  MatInputModule,
+  MatToolbarModule,
+  MatSelectModule,
+  MatPaginatorModule
+];
 
 @NgModule({
   imports: modules,
-  exports: modules
+  exports: modules,
 })
-export class MaterialModule { }
+export class MaterialModule {}

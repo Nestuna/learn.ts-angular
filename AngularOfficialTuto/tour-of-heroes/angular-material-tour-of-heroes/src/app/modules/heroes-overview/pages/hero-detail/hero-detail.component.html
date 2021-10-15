@@ -5,10 +5,14 @@
         go back
     </button>
     <mat-card
-        class="mat-elevation-z5"
-        *ngIf="hero">
-        <mat-card-title>{{hero.name | uppercase}} Details</mat-card-title>
-        <mat-card-subtitle>id: {{hero.id}}</mat-card-subtitle>
+        class="mat-elevation-z5">
+        <div *ngIf="hero; else default_title">
+            <mat-card-title>{{hero.name | uppercase}} Details</mat-card-title>
+            <mat-card-subtitle>id: {{hero.id}}</mat-card-subtitle>
+        </div>
+        <ng-template #default_title>
+            <mat-card-title>Add hero</mat-card-title>
+        </ng-template>
         <mat-card-content>
             <form
                 [formGroup]="heroFormGroup"
@@ -20,7 +24,8 @@
                             matInput
                             formControlName="name"
                             placeholder="name"
-                            [ngModel]="hero.name">
+                            required
+                        >
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label for="name">Age</mat-label>
@@ -28,12 +33,14 @@
                             matInput
                             formControlName="age"
                             placeholder="age"
-                            [ngModel]="hero.age">
+                            required>
+
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label for="name">Power</mat-label>
                         <mat-select
-                            [(value)]="hero.power">
+                            formControlName="power"
+                            required>
                             <mat-option
                                 *ngFor="let power of powers"
                                 [value]="power">
@@ -46,9 +53,13 @@
                     <button
                         mat-raised-button
                         color="primary"
-                        class="submit-button"
-                        (click)="save()">
-                        save
+                        class="submit-button">
+                        <span *ngIf="hero; else add">
+                            Edit
+                        </span>
+                        <ng-template #add>
+                            Add
+                        </ng-template>
                     </button>
                 </div>
             </form>

@@ -2,18 +2,10 @@
     <div class="header">
         <h2>My Heroes</h2>
         <div id="add_hero">
-            <mat-form-field appearance="fill">
-                <mat-label>Add hero</mat-label>
-                <input
-                    matInput
-                    id="new-hero"
-                    #heroName
-                    placeholder="Hero name">
-            </mat-form-field>
-            <button color="basic"
-                mat-mini-fab
-                class="add-button mat-elevation-z2"
-                (click)="add(heroName.value); heroName.value=''">
+            <button mat-fab color="primary"
+                title="add hero"
+                class="add-button mat-elevation-z3"
+                routerLink="/add">
                 <mat-icon>add</mat-icon>
             </button>
         </div>
@@ -21,22 +13,20 @@
     <div id="heroes_list">
     <mat-card
         class="mat-elevation-z5"
-        *ngFor="let hero of heroes">
+        *ngFor="let hero of heroesToShow">
         <mat-card-title color="primary">{{ hero.name }}</mat-card-title>
         <mat-card-subtitle>{{ hero.id }}</mat-card-subtitle>
         <mat-card-content>
-            <p>Age: {{ hero.age }}</p>
-            <p>Power: {{ hero.power }}</p>
         </mat-card-content>
         <mat-card-actions align="end">
-            <a
+            <button
                 mat-mini-fab
                 color="primary"
                 class="mat-elevation-z0"
                 title="edit hero"
                 routerLink="/detail/{{hero.id}}">
                 <mat-icon>edit</mat-icon>
-            </a>
+            </button>
             <button
                 mat-mini-fab
                 color="warn"
@@ -47,6 +37,10 @@
             </button>
         </mat-card-actions>
     </mat-card>
-
     </div>
+    <mat-paginator
+        [length]="heroes.length"
+        [pageSize]="itemsPerPage"
+        (page)="onPageChange($event)"
+    ></mat-paginator>
 </div>

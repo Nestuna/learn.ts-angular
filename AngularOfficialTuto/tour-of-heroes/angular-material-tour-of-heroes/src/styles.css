@@ -18,6 +18,10 @@ body, input[type="text"], button {
   color: #333;
   font-family: Cambria, Georgia, serif;
 }
+
+button:hover {
+  opacity: 90%;
+}
 /* everywhere else */
 * {
   font-family: Arial, Helvetica, sans-serif;

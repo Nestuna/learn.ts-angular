@@ -27,7 +27,7 @@
     mat-card {
         margin-bottom: 1em;
         width: 175px;
-
+        background-color: rgb(245,245,245);
         button {
             margin-left: 1em;
         }
@@ -35,7 +35,11 @@
     }
 
     mat-card:hover {
-        background-color: rgb(250, 250, 250);
+        background-color: white;
+    }
+
+    mat-paginator {
+        background-color: #EEE;
     }
 
 }

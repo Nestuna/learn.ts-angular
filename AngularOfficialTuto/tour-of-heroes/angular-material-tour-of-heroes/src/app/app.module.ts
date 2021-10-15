@@ -3,18 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryDataService } from './core/services/in-memory-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { HeaderComponent } from './header/header.component';
+import { HeroesComponent } from './modules/heroes-overview/pages/heroes/heroes.component';
+import { HeroDetailComponent } from './modules/heroes-overview/pages/hero-detail/hero-detail.component';
+import { MessagesComponent } from './core/components/messages/messages.component';
+import { DashboardComponent } from './modules/heroes-overview/pages/dashboard/dashboard.component';
+import { HeroSearchComponent } from './modules/heroes-overview/components/hero-search/hero-search.component';
+import { HeaderComponent } from './core/components/header/header.component';
 
 
 
