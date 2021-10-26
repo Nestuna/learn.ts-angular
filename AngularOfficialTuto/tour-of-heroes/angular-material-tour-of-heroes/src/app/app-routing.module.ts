@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'heroes', component: HeroesComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'add', component: HeroDetailComponent }
+  { path: 'add', component: HeroDetailComponent },
+  { path: 'modules', loadChildren: () => import('./modules/modules/modules.module').then(m => m.ModulesModule) }
 
 ];
 

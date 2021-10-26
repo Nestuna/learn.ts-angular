@@ -1,0 +1,13 @@
+@import '~@angular/material/theming';
+
+$primary: mat-palette($mat-blue, 700, 500, 800, 900);
+$accent: mat-palette($mat-yellow, 600, 500, 700);
+$warn: mat-palette($mat-red, 600, 400, 700);
+$bg-color: mat-palette($mat-blue-grey, 50);
+$fg-color: mat-palette($mat-blue-grey, 200, 100);
+
+$dark-primary: mat-palette($mat-blue, 500, 400, 600, 100);
+$dark-accent: mat-palette($mat-yellow, 400, 300, 600);
+$dark-warn: mat-palette($mat-red, 400, 200, 300);
+$dark-bg-color: mat-palette($mat-blue-grey, 900);
+$dark-fg-color: mat-palette($mat-blue-grey, 700, 600);

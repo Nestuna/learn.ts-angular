@@ -1,0 +1,50 @@
+@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+@import 'variables';
+
+@include mat-core();
+
+$theme: mat-light-theme($primary, $accent, $warn);
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+.default-theme {
+    @include angular-material-theme($theme);
+
+    .wrapper {
+        background-color: mat-color($bg-color);
+    }
+    h1, h2, h3 {
+        color: mat.get-color-from-palette($primary, 'text');
+    }
+    .heroes-menu {
+        mat-grid-tile {
+            color: white;
+            background-color: mat.get-color-from-palette($primary, 'darker');
+
+            &:hover {
+                background-color: mat.get-color-from-palette($primary);
+            }
+        }
+    }
+}
+
+.dark-theme {
+    @include angular-material-theme($dark-theme);
+
+    .wrapper {
+        background-color: mat-color($dark-bg-color);
+    }
+    h1, h2, h3 {
+        color: mat.get-color-from-palette($dark-primary, 'text');
+    }
+    .heroes-menu {
+        mat-grid-tile {
+            color: white;
+            background-color: mat.get-color-from-palette($dark-primary, 'darker');
+
+            &:hover {
+                background-color: mat.get-color-from-palette($dark-primary);
+            }
+        }
+    }
+}

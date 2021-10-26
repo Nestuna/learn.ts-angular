@@ -6,11 +6,11 @@ import { generateHeroes } from '../helpers/generate-heroes';
 @Injectable({
   providedIn: 'root'
 })
-export class InMemoryDataService {
+export class InMemoryDataService extends InMemoryDbService {
 
   createDb() {
     const heroes = generateHeroes();
-    return {heroes};
+    return { heroes };
   }
 
   // Overrides the genId method to ensure that a hero always has an id.

@@ -16,16 +16,15 @@ export const generateHeroes = ():object[] => {
     let newHeroesList = [];
     const id = 1;
     for (let i=id; i < LENGTH; i++){
-        for (const hero of heroes){
-            const { name, age, power } = hero;
-            newHeroesList.push({
-                id: i,
-                name,
-                age,
-                power
-            })
-            i++;
-        }
+        const heroIndex = Math.floor(Math.random() * 10)
+        const { name, age, power } = heroes[heroIndex];
+        newHeroesList.push({
+            id: i,
+            name,
+            age,
+            power
+        })
+
     }
     return newHeroesList
 }

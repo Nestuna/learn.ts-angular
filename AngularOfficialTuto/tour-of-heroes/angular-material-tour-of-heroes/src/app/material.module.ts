@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 const modules = [
   MatButtonModule,
@@ -25,7 +26,8 @@ const modules = [
   MatInputModule,
   MatToolbarModule,
   MatSelectModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatSlideToggleModule
 ];
 
 @NgModule({

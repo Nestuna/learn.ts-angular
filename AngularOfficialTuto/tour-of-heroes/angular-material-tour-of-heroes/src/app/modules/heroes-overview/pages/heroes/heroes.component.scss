@@ -1,5 +1,6 @@
-
 .heroes {
+    padding: 1rem;
+
     .header {
         display: flex;
         margin-bottom: 2em;
@@ -15,7 +16,7 @@
     #heroes_list {
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between;
+        justify-content:space-evenly;
     }
 
     button.add-button {
@@ -27,20 +28,10 @@
     mat-card {
         margin-bottom: 1em;
         width: 175px;
-        background-color: rgb(245,245,245);
         button {
             margin-left: 1em;
         }
 
     }
-
-    mat-card:hover {
-        background-color: white;
-    }
-
-    mat-paginator {
-        background-color: #EEE;
-    }
-
 }
 

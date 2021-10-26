@@ -13,7 +13,11 @@ import { Hero } from '../../../../core/models/hero';
 })
 export class HeroDetailComponent implements OnInit {
   hero?: Hero;
-  heroFormGroup!: FormGroup;
+  heroFormGroup: FormGroup = this.formBuilder.group({
+    'name': '',
+    'age': '',
+    'power': ''
+  });
   powers = ['Fly', 'Speed', 'Invisible']
 
   constructor(
@@ -33,10 +37,10 @@ export class HeroDetailComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
       this.heroService.getHero(id)
-      .subscribe(hero => {
-        this.hero = hero
-        this.createForm()
-      })
+        .subscribe(hero => {
+          this.hero = hero
+          this.createForm()
+        })
     } else {
       this.createForm()
     }
@@ -48,8 +52,6 @@ export class HeroDetailComponent implements OnInit {
         ...this.hero
       });
     } else {
-      console.log('form created');
-
       this.heroFormGroup = this.formBuilder.group({
         'name': '',
         'age': '',

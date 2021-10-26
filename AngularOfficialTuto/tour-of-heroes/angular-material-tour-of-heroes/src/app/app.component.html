@@ -1,3 +1,10 @@
-<app-header [title]=title></app-header>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<div class="wrapper">
+    <app-header
+        [title]="title"
+        (toggleDarkMode)="onToggleTheme($event)">
+    </app-header>
+    <router-outlet></router-outlet>
+    <div class="messages-row">
+        <app-messages ></app-messages>
+    </div>
+</div>
