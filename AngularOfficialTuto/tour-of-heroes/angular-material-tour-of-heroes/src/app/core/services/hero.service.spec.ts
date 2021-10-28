@@ -19,7 +19,6 @@ describe('HeroService', () => {
     });
 
     service = TestBed.inject(HeroService);
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
   });
 
 

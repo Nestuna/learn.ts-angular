@@ -10,7 +10,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Observable, Observer, of } from 'rxjs';
 import { Hero } from '@core/models/hero';
 import { HeroService } from '@core/services/hero.service';
-import { InMemoryDataService } from '@core/services/in-memory-data.service';
 import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 
 let mockData = { id: 0, name: 'Dr Nice', age: 23, power: 'Invisible' };
@@ -26,6 +25,7 @@ class MockHeroService {
 describe('HeroDetailComponent', () => {
   let component: HeroDetailComponent;
   let fixture: ComponentFixture<HeroDetailComponent>;
+  let router: Router;
   let route: ActivatedRoute;
 
   beforeEach(async () => {
@@ -47,7 +47,7 @@ describe('HeroDetailComponent', () => {
   });
 
   beforeEach(async () => {
-    const router = TestBed.inject(Router)
+    router = TestBed.inject(Router)
     route = TestBed.inject(ActivatedRoute)
     const spyRoute = spyOn(route.snapshot.paramMap, 'get');
     spyRoute.and.returnValue('0');
@@ -62,11 +62,6 @@ describe('HeroDetailComponent', () => {
   });
 
   it('should get hero data', () => {
-    fixture.whenStable().then(() => {
-      console.log(component.hero);
-      console.log(route.snapshot.paramMap.get('id'));
-
       expect(component.hero).toEqual(mockData)
-    })
   })
 });

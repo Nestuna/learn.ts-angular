@@ -22,7 +22,6 @@ class MockHeroService {
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
   let fixture: ComponentFixture<HeroesComponent>;
-  let heroService: HeroService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -48,6 +47,4 @@ describe('HeroesComponent', () => {
   it('should get heroes data', () => {
     expect(component.heroes[0]).toBe(mockData[0]);
   })
-
-
 });
