@@ -35,15 +35,21 @@ export class HeroDetailComponent implements OnInit {
 
   initForm(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    if (id) {
+
+    if (id !== undefined) {
       this.heroService.getHero(id)
         .subscribe(hero => {
           this.hero = hero
           this.createForm()
+
         })
     } else {
+
       this.createForm()
     }
+
+
+
   }
 
   createForm(): void {

@@ -7,27 +7,51 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Observable, Observer, of } from 'rxjs';
+import { Hero } from '@core/models/hero';
+import { HeroService } from '@core/services/hero.service';
+import { InMemoryDataService } from '@core/services/in-memory-data.service';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+
+let mockData = { id: 0, name: 'Dr Nice', age: 23, power: 'Invisible' };
+
+class MockHeroService {
+  getHero() {
+    return new Observable((subscriber: Observer<Hero>) => {
+      subscriber.next(mockData);
+    });
+  }
+}
 
 describe('HeroDetailComponent', () => {
   let component: HeroDetailComponent;
   let fixture: ComponentFixture<HeroDetailComponent>;
+  let route: ActivatedRoute;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         FormsModule,
         ReactiveFormsModule,
         MatSelectModule,
         MatInputModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
       ],
       declarations: [HeroDetailComponent],
+      providers: [
+        { provide: HeroService, useClass: MockHeroService },
+      ]
     }).compileComponents();
   });
 
-  beforeEach(() => {
+  beforeEach(async () => {
+    const router = TestBed.inject(Router)
+    route = TestBed.inject(ActivatedRoute)
+    const spyRoute = spyOn(route.snapshot.paramMap, 'get');
+    spyRoute.and.returnValue('0');
+
     fixture = TestBed.createComponent(HeroDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -36,4 +60,13 @@ describe('HeroDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get hero data', () => {
+    fixture.whenStable().then(() => {
+      console.log(component.hero);
+      console.log(route.snapshot.paramMap.get('id'));
+
+      expect(component.hero).toEqual(mockData)
+    })
+  })
 });

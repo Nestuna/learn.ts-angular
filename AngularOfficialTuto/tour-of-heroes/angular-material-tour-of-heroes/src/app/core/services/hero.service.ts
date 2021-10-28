@@ -19,7 +19,7 @@ export class HeroService {
     private messageService: MessageService,
     private http: HttpClient) { }
 
-  getHeroes(): Observable<Hero[]> {
+    getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
         tap(_ => this.log('fetched heroes')),
@@ -31,7 +31,7 @@ export class HeroService {
     const url =`${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
       tap(_ => this.log(`fetched hero id = ${id}`),
-      catchError(this.handleError<Hero>(`getHero id=${id}`))
+        catchError(this.handleError<Hero>(`getHero id=${id}`))
       )
     )
   }
